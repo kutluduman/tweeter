@@ -24,10 +24,14 @@ body {
   font-size: 24px;
 }
 
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- nav span {
-  font-family: Bungee, sans-serif;
- }
+ main {
+  margin: 140px;
+  width: 90%;
+  align-content: center;
+  background-color: #f4f1ec;
+}

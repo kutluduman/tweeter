@@ -1,13 +1,8 @@
-/* position fixed assures element is removed from the normal document flow, and no space is created for the element in the page layout
-   Top specifies the vertical position of a positioned element
-   CSS property sets the z-order of a positioned element and its descendants or flex items.
-   padding sets the padding area on all four sides of an element at once.
-*/
 nav {
   position: fixed;
   top: 0;
+  width: 100%;
   height: 120px; 
-  width: 100vw;
   z-index: 99;
   padding: 1.5em;
   background-color:#4056A1;
@@ -15,12 +10,7 @@ nav {
     
 }
 
-/* nth-child(1) specifies the tweeter text from nav span
-  font-family assigns the Bungee font to the tweeter text
-  float left assures that the tweeter text is on the left
-*/
-nav span:nth-child(1) {
-  font-family: Bungee, sans-serif; 
-  float: left;
-  font-size: 1.5em;  
+nav span {
+  font-family: 'Bungee', cursive;
+  font-size: 1.5em; 
 }

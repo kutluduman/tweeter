@@ -1,0 +1,32 @@
+.new-tweet button {
+  color: rgb(255, 255, 255);
+  background-color: #4b0bc0;
+  font-family: Bungee, sans-serif;
+  float: left;
+}
+
+.new-tweet output {
+  color: rgb(0, 0, 0);
+  font-family: Bungee, sans-serif;
+  float: right;
+  padding: 1em;
+}
+
+.new-tweet textarea {
+  right: 42vw;
+  width: 100%;
+  height: 45px;
+  border: 0;
+  border-bottom: 4px solid #545149 ;
+  font-weight: 700;
+  resize: none;
+  outline: none;
+  background-color: inherit;
+  color: #545149;
+}
+
+.new-tweet label {
+  font-weight: bold;
+}
+
+

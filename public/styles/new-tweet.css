@@ -49,3 +49,7 @@
   float: right;
 }
 
+.over-char-limit{
+  color: red;
+}
+

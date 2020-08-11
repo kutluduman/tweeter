@@ -21,5 +21,6 @@ nav {
 */
 nav span:nth-child(1) {
   font-family: Bungee, sans-serif; 
-  float: left;  
+  float: left;
+  font-size: 1.5em;  
 }

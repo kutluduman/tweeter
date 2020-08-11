@@ -44,7 +44,10 @@
 }
 
 .new-tweet output {
-  color: rgb(0, 0, 0);
   font-family: Bungee, sans-serif;
   float: right;
+}
+
+.redLimit {
+  color: red;
 }

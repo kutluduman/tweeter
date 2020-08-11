@@ -5,28 +5,47 @@
   float: left;
 }
 
-.new-tweet output {
-  color: rgb(0, 0, 0);
-  font-family: Bungee, sans-serif;
-  float: right;
-  padding: 1em;
+.new-tweet div {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive; 
 }
 
 .new-tweet textarea {
-  right: 42vw;
-  width: 100%;
-  height: 45px;
-  border: 0;
-  border-bottom: 4px solid #545149 ;
-  font-weight: 700;
-  resize: none;
+  display: flex;
+  width: 100%;  
+  margin-bottom: 10px;
   outline: none;
-  background-color: inherit;
-  color: #545149;
+  resize: none;
+  overflow: auto;
+  border: none;
+  border-bottom: solid 5px black;
+  font-weight: bold;
+  background-color: #f4f1ec;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0 5% 0 5%;
+}
+
+.new-tweet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 5% 0 5%;
+  width: 100;
 }
 
 .new-tweet label {
   font-weight: bold;
 }
 
+.new-tweet output {
+  color: rgb(0, 0, 0);
+  font-family: Bungee, sans-serif;
+  float: right;
+}
 

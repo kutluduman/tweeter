@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 const data = [
   {
     "user": {
@@ -27,10 +28,17 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+];
 
 
 $(document).ready(function () {
+
+  const getTweets = () => {
+    $.ajax('/tweets/', { method: 'GET'})
+    .then(function(response) {
+      renderTweets(response);
+    }) ;
+  };
 
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
@@ -66,7 +74,16 @@ $(document).ready(function () {
 
   };
 
-  renderTweets(data);
+  $('#submit-tweet').submit(function (event) {
+    event.preventDefault();
+    const formData = ($(this).serialize());
+
+    $.ajax('/tweets/', { method: 'POST', data: formData })
+    .then(function(response) {
+      console.log('Response: ', response);
+    })
+
+  });
   
 });
 

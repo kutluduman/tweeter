@@ -7,6 +7,9 @@ article.tweets {
 article.tweets header img {
   width: 50px;
   height: auto;
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
 
 article.tweets header {
@@ -21,6 +24,7 @@ article.tweets header {
 
 article.tweets header div {
   padding-left: 15px;
+ 
 }
 
 article.tweets header img {

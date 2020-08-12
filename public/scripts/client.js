@@ -34,7 +34,7 @@ $(document).ready(function () {
     </header>
     <p>${tweet.content.text}</p>
     <footer>
-      <p>${tweetInDays}</p>
+      <p>${tweetInDays} days ago</p>
       <div class = "tweet-icons">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>

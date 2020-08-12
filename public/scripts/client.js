@@ -49,17 +49,18 @@ $(document).ready(function () {
 
   loadtweets();
 
-  $('#submit-tweet').submit(function (event) {
+  $('#submit-tweet').submit(function(event) {
     event.preventDefault();
-    const tweetText = $("#tweet-text").val();
     const formData = $(this).serialize();
+    const tweetText = $("#tweet-text").val();
+    
     if (tweetText.length > 140 || tweetText.length === 0) {
       alert("Invalid tweet");
     } else {
-      $.ajax('/tweets/', {method: POST , data: formData})
-      .then(function (response) {
-        console.log('Response: ', response);
-      })
+      $.ajax('/tweets/', { method : 'POST', data : formData})
+      .then(function(tweet) {
+        loadtweets();
+      });
     }
   });
   

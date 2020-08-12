@@ -6,6 +6,12 @@
 
 $(document).ready(function () {
 
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   const loadtweets = () => {
     $.ajax('/tweets/', { method: 'GET'})
     .then(function(response) {
@@ -29,12 +35,12 @@ $(document).ready(function () {
     <article class = "tweets">
     <header>
     <div>
-      <img src = ${tweet.user.avatars}>
-      <h3 class =${tweet.user.name}>${tweet.user.name}</h3>
+      <img src = ${escape(tweet.user.avatars)}>
+      <h3 class =${escape(tweet.user.name)}>${escape(tweet.user.name)}</h3>
     </div>
-    <span class = ${tweet.user.handle}>${tweet.user.handle}</span>
+    <span class = ${escape(tweet.user.handle)}>${tweet.user.handle}</span>
     </header>
-    <p>${tweet.content.text}</p>
+    <p>${escape(tweet.content.text)}</p>
     <footer>
       <p>${tweetInDays} days ago</p>
       <div class = "tweet-icons">

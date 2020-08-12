@@ -78,3 +78,13 @@ article.tweets .tweet-icons i {
   margin-left: 6px;
   cursor: pointer;
 } 
+
+
+article.tweets:hover {
+  font-weight: bolder;
+  box-shadow: 20px 20px 10px #616c70;
+}
+
+article.tweets:hover .handle {
+  visibility: visible;
+}

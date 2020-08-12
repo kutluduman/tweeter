@@ -6,22 +6,24 @@
 
 const tweetData = {
   "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
+    "name": "Descartes",
+    "avatars": "https://i.imgur.com/nlhLi3I.png",
+    "handle": "@rd" },
   "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-  "created_at": 1461116232227
+    "text": "Je pense , donc je suis"
+  },
+  "created_at": 1461113959088
 }
 
 
 $(document).ready(function () {
 
   const createTweetElement = (tweet) => {
+    const tweetDate = new Date(tweet.created_at);
+    const currentDate = new Date();
+    const tweetInDays = Math.floor((currentDate.getTime() - tweetDate.getTime()) / (1000 * 3600 * 24));
 
-    return `
+    return (`
     <article class = "tweets">
     <header>
     <div>
@@ -32,18 +34,19 @@ $(document).ready(function () {
     </header>
     <p>${tweet.content.text}</p>
     <footer>
-      <p>10 days ago</p>
+      <p>${tweetInDays}</p>
       <div class = "tweet-icons">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
         <i class="fas fa-heart"></i>
       </div>
     </footer>
-  </article>`
-
+  </article>`);
 
   };
 
-
+  const $tweet = createTweetElement(tweetData);
+  console.log($tweet);
+  
 
 });

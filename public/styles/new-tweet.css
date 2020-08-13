@@ -51,3 +51,15 @@
 .redLimit {
   color: red;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.error-message {
+  color: red;
+  display: flex;
+  align-items: center;
+  font-size: 14;
+}
+

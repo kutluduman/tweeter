@@ -62,9 +62,16 @@ $(document).ready(function () {
     const formData = $(this).serialize();
     const tweetText = $("#tweet-text").val();
     
-    if (tweetText.length > 140 || tweetText.length === 0) {
-      alert("Invalid tweet");
+    if (tweetText.length > 140) {
+      $('.error-message').html('Your tweet is long');
+      $('#tweeterror').slideDown("300");
+    } else if (tweetText.length === 0) {
+      $('.error-message').html('Your tweet is empty, plese enter your tweet');
+      $('#tweeterror').slideDown("300");
     } else {
+      $('#tweet-error').addClass("hidden");
+      $('#tweet-error').html("");
+      $('#tweet-text').val("");
       $.ajax('/tweets/', { method : 'POST', data : formData})
       .then(function(response) {
         loadtweets();

@@ -4,19 +4,19 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
   const loadtweets = () => {
     $.ajax('/tweets/', { method: 'GET'})
-    .then(function(response) {
-      renderTweets(response);
-    }) ;
+      .then(function(response) {
+        renderTweets(response);
+      });
   };
 
   const renderTweets = function(tweets) {
@@ -30,7 +30,7 @@ $(document).ready(function () {
   const renderTweet = function(tweet) {
     const $tweet = createTweetElement(tweet);
     $('#tweets-container').prepend($tweet);
-  }
+  };
 
   const createTweetElement = (tweet) => {
   
@@ -74,13 +74,12 @@ $(document).ready(function () {
       $('#tweet-text').val("");
       $('.counter').val(140);
       $.ajax('/tweets/', { method : 'POST', data : formData})
-      .then(function(response) {
-        loadtweets();
-      });
+        .then(function(response) {
+          loadtweets();
+        });
     }
   });
   
   loadtweets();
   
 });
-

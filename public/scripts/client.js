@@ -20,15 +20,20 @@ $(document).ready(function () {
   };
 
   const renderTweets = function(tweets) {
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+    $('#tweets-container').empty();
+    const sortTweets = tweets.sort((a,b) => a.created_at - b.created_at);
+    for (const tweet of sortTweets) {
+      renderTweet(tweet);
     }
   };
 
+  const renderTweet = function(tweet) {
+    const $tweet = createTweetElement(tweet);
+    $('#tweets-container').prepend($tweet);
+  }
+
   const createTweetElement = (tweet) => {
   
-
     return (`
     <article class = "tweets">
     <header>
@@ -51,7 +56,6 @@ $(document).ready(function () {
 
   };
 
-  loadtweets();
 
   $('#submit-tweet').submit(function(event) {
     event.preventDefault();
@@ -62,11 +66,13 @@ $(document).ready(function () {
       alert("Invalid tweet");
     } else {
       $.ajax('/tweets/', { method : 'POST', data : formData})
-      .then(function(tweet) {
+      .then(function(response) {
         loadtweets();
       });
     }
   });
+  
+  loadtweets();
   
 });
 

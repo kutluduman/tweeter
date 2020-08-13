@@ -72,6 +72,7 @@ $(document).ready(function () {
       $('#tweet-error').addClass("hidden");
       $('#tweet-error').html("");
       $('#tweet-text').val("");
+      $('.counter').val(140);
       $.ajax('/tweets/', { method : 'POST', data : formData})
       .then(function(response) {
         loadtweets();

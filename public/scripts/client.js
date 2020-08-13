@@ -27,9 +27,7 @@ $(document).ready(function () {
   };
 
   const createTweetElement = (tweet) => {
-    const tweetDate = new Date(tweet.created_at);
-    const currentDate = new Date();
-    const tweetInDays = Math.floor((currentDate.getTime() - tweetDate.getTime()) / (1000 * 3600 * 24));
+  
 
     return (`
     <article class = "tweets">
@@ -42,7 +40,7 @@ $(document).ready(function () {
     </header>
     <p>${escape(tweet.content.text)}</p>
     <footer>
-      <p>${tweetInDays} days ago</p>
+      <p>${moment(tweet.created_at).fromNow()}</p>
       <div class = "tweet-icons">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>

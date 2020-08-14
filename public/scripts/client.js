@@ -72,7 +72,7 @@ $(document).ready(function() {
     const tweetText = $("#tweet-text").val();
     
     if (tweetText.length > 140) {
-      $('#tweet-error').html('Your tweet is over the character limit');
+      $('#tweet-error').html('Your tweet is long! Please follow the character limit');
       $('#tweet-error').slideDown(300);
     } else if (tweetText.length === 0) {
       $('#tweet-error').html('Your tweet is empty, plese enter your tweet');

@@ -5,7 +5,7 @@ $(document).ready(() => {
 
   /*
   Handles input event, when the tweet form receives input,
-  the character count begins going backwards and gets red when it passes 
+  the character count begins going backwards and gets red when it passes
   0
   */
   $(textArea).on('input', function() {

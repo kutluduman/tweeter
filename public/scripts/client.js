@@ -14,7 +14,7 @@ $(document).ready(function() {
   };
 
   /*
-  Requests tweets so that it can use render 
+  Requests tweets so that it can use render
   function to render the response
   */
   const loadtweets = () => {

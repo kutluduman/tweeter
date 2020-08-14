@@ -13,7 +13,7 @@ $(document).ready(function() {
   };
 
   const loadtweets = () => {
-    $.ajax('/tweets/', { 
+    $.ajax('/tweets/', {
       method: 'GET'
     })
       .then(function(response) {
@@ -88,7 +88,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#write-tweet').on('click', function () {
+  $('#write-tweet').on('click', function() {
     const $newTweet = $("#new-tweet");
     if ($newTweet.is(":hidden")) {
       $newTweet.slideDown(300);

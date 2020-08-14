@@ -6,12 +6,17 @@
 
 $(document).ready(function() {
 
+  // Avoids XSS attacks
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+  /*
+  Requests tweets so that it can use render 
+  function to render the response
+  */
   const loadtweets = () => {
     $.ajax('/tweets/', {
       method: 'GET'
@@ -20,7 +25,10 @@ $(document).ready(function() {
         renderTweets(response);
       });
   };
-
+  /*
+   Sorts out the tweets and then
+   renders all the tweets
+  */
   const renderTweets = function(tweets) {
     $('#tweets-container').empty();
     const sortTweets = tweets.sort((a,b) => a.created_at - b.created_at);
@@ -29,11 +37,13 @@ $(document).ready(function() {
     }
   };
 
+  // Parses a tweet
   const renderTweet = function(tweet) {
     const $tweet = createTweetElement(tweet);
     $('#tweets-container').prepend($tweet);
   };
 
+  // Templete that is used for rendering
   const createTweetElement = (tweet) => {
   
     return (`
@@ -65,7 +75,11 @@ $(document).ready(function() {
 
   };
 
-
+  /*
+    Handles the submission event. After tweet is submitted,
+    it goes through some if conditions and if the conditions
+    are met, then the tweets are posted
+  */
   $('#submit-tweet').submit(function(event) {
     event.preventDefault();
     const formData = $(this).serialize();
@@ -88,6 +102,7 @@ $(document).ready(function() {
     }
   });
 
+  // Handles the click event. Hides or shows the tweet submission box
   $('#write-tweet').on('click', function() {
     const $newTweet = $("#new-tweet");
     if ($newTweet.is(":hidden")) {

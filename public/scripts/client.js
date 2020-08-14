@@ -13,7 +13,9 @@ $(document).ready(function() {
   };
 
   const loadtweets = () => {
-    $.ajax('/tweets/', { method: 'GET'})
+    $.ajax('/tweets/', { 
+      method: 'GET'
+    })
       .then(function(response) {
         renderTweets(response);
       });
@@ -35,21 +37,28 @@ $(document).ready(function() {
   const createTweetElement = (tweet) => {
   
     return (`
-    <article class = "tweets">
+    <article>
     <header>
     <div>
+    <div>
       <img src = ${escape(tweet.user.avatars)}>
-      <h3 class =${escape(tweet.user.name)}>${escape(tweet.user.name)}</h3>
+      </div>
+        <div>
+      ${escape(tweet.user.name)}
     </div>
-    <span class = ${escape(tweet.user.handle)}>${tweet.user.handle}</span>
+    </div>
+     ${escape(tweet.user.handle)}
+     </div>
     </header>
-    <p>${escape(tweet.content.text)}</p>
+    <div class="tweet-text-container">
+      ${escape(tweet.content.text)}
+    </div>
     <footer>
-      <p>${moment(tweet.created_at).fromNow()}</p>
-      <div class = "tweet-icons">
-        <i class="fas fa-flag"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="fas fa-heart"></i>
+    <div>
+    ${moment(tweet.created_at).fromNow()}
+    </div>
+      <div>
+      <i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i class="fas fa-heart"></i>
       </div>
     </footer>
   </article>`);
@@ -63,14 +72,13 @@ $(document).ready(function() {
     const tweetText = $("#tweet-text").val();
     
     if (tweetText.length > 140) {
-      $('.error-message').html('Your tweet is long');
-      $('#tweeterror').slideDown("300");
+      $('#tweet-error').html('Your tweet is over the character limit');
+      $('#tweet-error').slideDown(300);
     } else if (tweetText.length === 0) {
-      $('.error-message').html('Your tweet is empty, plese enter your tweet');
-      $('#tweeterror').slideDown("300");
+      $('#tweet-error').html('Your tweet is empty, plese enter your tweet');
+      $('#tweet-error').slideDown(300);
     } else {
-      $('#tweet-error').addClass("hidden");
-      $('#tweet-error').html("");
+      $('#tweet-error').slideUp(300);
       $('#tweet-text').val("");
       $('.counter').val(140);
       $.ajax('/tweets/', { method : 'POST', data : formData})
@@ -79,6 +87,17 @@ $(document).ready(function() {
         });
     }
   });
+
+  $('#write-tweet').on('click', function () {
+    const $newTweet = $("#new-tweet");
+    if ($newTweet.is(":hidden")) {
+      $newTweet.slideDown(300);
+      $('#tweet-text').focus();
+    } else {
+      $newTweet.slideUp(300);
+    }
+  });
+
   
   loadtweets();
   

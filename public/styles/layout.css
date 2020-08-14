@@ -1,18 +1,16 @@
-
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
- html {
+html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
-* {
-  font-family: Source Sans Pro, sans-serif;;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 /*
@@ -24,12 +22,125 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 120px;
 }
-
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
- 
+.new-tweet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.new-tweet div {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  outline: none;
+  resize: none;
+  overflow: auto;
+  border: none;
+  border-bottom: solid 5px black;
+  font-weight: bold;
+  background-color: #f4f1ec;
+}
+
+.new-tweet button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.red {
+  color: red;
+}
+
+.handle {
+  visibility: hidden;
+  color: #add8e6;
+}
+
+main article:hover {
+  font-weight: bold;
+  box-shadow: 10px 10px 5px #add8e6;
+}
+
+main article:hover .handle {
+  visibility: visible;
+}
+
+main article {
+  margin-top: 50px;
+  border: solid 5px black;
+  padding: 10px;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+
+article footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 16px;
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+}
+
+article header div {
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.tweet-text-container {
+  display: flex;
+  border-bottom: solid 5px black;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.content-container {
+  margin: 0 5% 0 5%;
+}
+
+article footer i {
+  padding-right: 10px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .content-container {
+    width: 50%;
+  }
+
+  .container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

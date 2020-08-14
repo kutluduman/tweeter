@@ -7,9 +7,13 @@ nav {
   height: 100px; 
   z-index: 99;
   padding: 1.5em;
-  background-color:#4056A1;
+  background-color:#344c9c;
   color: #ffffff;
-    
+  font-size: 25px;  
+}
+
+.logo {
+  font-family: 'Bungee', cursive;
 }
 
 .write-tweet {
@@ -18,16 +22,13 @@ nav {
   cursor: pointer;
 }
 
-nav span {
-  font-family: 'Bungee', cursive;
-  font-size: 1.5em; 
-}
-
-
 nav i {
   position: absolute;
   right: 5em;
-  bottom: 0.9em;
+  bottom: 0.7em;
   color: red;
   transition: all 0.5s ease;
 }
+
+
+
